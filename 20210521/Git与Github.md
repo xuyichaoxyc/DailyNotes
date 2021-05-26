@@ -32,7 +32,7 @@
 + 暂存区（stage，index）：在Git的版本库中
 
 + Git自动创建的第一个master分支，指向master的一个指针HEAD
-  ![add和commit过程](C:\Users\admin\Desktop\笔记\DailyNotes\20210521\img\1620456902103_2.png)
+  ![add和commit过程](.\img\1620456902103_2.png)
 
   
 
