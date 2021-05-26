@@ -154,3 +154,113 @@ Quartz
 在这么多服务相互调用，然后有的服务可能会一次调用多个其他服务。比如一个订单服务，收到订单以后，肯定得从买家账户扣钱，还得添加购物车，同时还得通知卖家库存减少等等操作。那么可能每个部分都是一个服务，这样相互调用耦合度就非常大。特别是，如果业务链条需要延长了，那么就需要去修改具体的服务。这个时候就引入了消息队列，和数据流的感念。负责订单的模块，只需要把相关的消息放到消息队列，然后其他需要接受到订单消息进行的操作，只需要订阅该队列，就可以依次执行。大大降低耦合，拥抱变化。
 
 **如果理解了微服务的由来的必要性，就很容易理解每一个部分为什么出现，是应对什么样的应用场景。学习起来就会事半功倍。**
+
+
+
+
+
+# mall 配置整理
+
+## redisson
+
+Redis官方推荐的Java版的Redis客户端
+
+这里：缓存和分布式会话
+
+缓存的应用：（系统中并发量比较高的地方，需要频繁对数据库进行操作的地方）
+
++ 商城首页
++ 广告首页
++ 搜索面板数据
++ 购物车
+
+redis缓存的利用率的提高，在于分析数据是否热点，，通过对redis缓存数据设置有效期来控制数据。
+
+商品评论这样价值不太高的大批量数据采用MongoDB
+
+
+
+## actuator（Spring Boot Actuator）
+
+健康检查、审计、统计和监控
+
+| Endpoint ID    | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| auditevents    | 显示应用暴露的审计事件 (比如认证进入、订单失败)              |
+| info           | 显示应用的基本信息                                           |
+| health         | 显示应用的健康状态                                           |
+| metrics        | 显示应用多样的度量信息                                       |
+| loggers        | 显示和修改配置的loggers                                      |
+| logfile        | 返回log file中的内容(如果logging.file或者logging.path被设置) |
+| httptrace      | 显示HTTP足迹，最近100个HTTP request/repsponse                |
+| env            | 显示当前的环境特性                                           |
+| flyway         | 显示数据库迁移路径的详细信息                                 |
+| liquidbase     | 显示Liquibase 数据库迁移的纤细信息                           |
+| shutdown       | 让你逐步关闭应用                                             |
+| mappings       | 显示所有的@RequestMapping路径                                |
+| scheduledtasks | 显示应用中的调度任务                                         |
+| threaddump     | 执行一个线程dump                                             |
+| heapdump       | 返回一个GZip压缩的JVM堆dump                                  |
+
+​                                     
+
+## log4j
+
+
+
+## spring jpa data
+
+
+
+## rabbit mq
+
+## ES-Elasticsearch
+
+## tx-lcn 分布式事务
+
+## swagger
+
+## mysql
+
+## fastdfs
+
+## spring eureka
+
+
+
+# Spring Cloud Alibaba
+
+## 服务发现-Nacos
+
+## 负载均衡-Ribbon
+
+## 声明式HTTP客户端-Feign
+
+## 服务容错-Sentinel
+
+## 消息驱动-RocketMQ
+
+## API网关-Gateway
+
+### 用户认证与授权
+
+## 配置管理-Nacos
+
+## 调用链监控-Sleuth
+
+## 多维度微服务监控
+
+企业级主流监控解决方案
+
+JVM、Spring Boot Admin
+
+ELK各种监控工具
+
+## 优化
+
+代码、思路、工具与解决方案
+
+编码最佳实践、SonarQube
+
+## 融合异构微服务
+
